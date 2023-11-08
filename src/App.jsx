@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
 import DetallePedido from "../src/components/detallePedido/DetallePedido";
 import Cargando from "../src/components/cargando/Cargando"
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -43,14 +45,20 @@ const App = () => {
 
   return (
     <>
-      <div className="centered-container">
-        <h1>Su Pedido</h1>
-        {mostrarCargando && <Cargando />}
-        {mostrarDetalle && <DetallePedido />}
-        {!mostrarCargando &&
-          <Button onClick={handlePedido}>{mostrarDetalle ? 'Cancelar Pedido' : 'Recargar'}</Button>
-        }
-      </div>
+      <Container>
+
+        <Header />
+          <div className="centered-container">
+            <h1>Su Pedido</h1>
+            {mostrarCargando && <Cargando />}
+            {mostrarDetalle && <DetallePedido />}
+            {!mostrarCargando &&
+              <Button onClick={handlePedido}>{mostrarDetalle ? 'Cancelar Pedido' : 'Recargar'}</Button>
+            }
+          </div>
+        <Footer />
+
+      </Container>
     </>
   );
 };
