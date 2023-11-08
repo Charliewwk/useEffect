@@ -9,7 +9,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   const [mostrarDetalle, setMostrarDetalle] = useState(false);
-  const [mostrarCargando, setMostrarCargando] = useState(true)
+  const [mostrarCargando, setMostrarCargando] = useState(true);
+  const [mostrarReiniciando, setMostrarReiniciando] = useState(false);
 
   useEffect(() => {
     console.log("1 comienzo 2 segundos...");
@@ -32,6 +33,8 @@ const App = () => {
       setMostrarDetalle(false);
     } else {
       console.log("7 reload");
+      setMostrarCargando(true)
+      setMostrarReiniciando(true);
       const reloadTimeout = setTimeout(() => {
         console.log("8 reload 2 segundos...");
         window.location.reload();
@@ -50,7 +53,7 @@ const App = () => {
         <Header />
           <div className="centered-container">
             <h1>Su Pedido</h1>
-            {mostrarCargando && <Cargando />}
+            {mostrarCargando && <Cargando mensaje={mostrarReiniciando ? 'Reiniciando' : 'Cargando'} />}
             {mostrarDetalle && <DetallePedido />}
             {!mostrarCargando &&
               <Button onClick={handlePedido}>{mostrarDetalle ? 'Cancelar Pedido' : 'Recargar'}</Button>
