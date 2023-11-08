@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <Navbar className="bg-body-tertiary fixed-top">
       <Container>
-        <Navbar.Brand href="#home">useEffect API</Navbar.Brand>
+        <Navbar.Brand href="#home">useEffect</Navbar.Brand>
       </Container>
     </Navbar>
   );
