@@ -1,0 +1,5 @@
+.centered-container {
+  width: 350px;
+  margin: 0 auto; /* Esto centra el contenedor horizontalmente */
+  text-align: center; /* Esto centra el contenido dentro del contenedor */
+}
